@@ -335,20 +335,13 @@ function LandingPage() {
                 Serviço educativo. Não substitui consulta, diagnóstico ou atendimento de emergência.
               </p>
             </div>
-            <div className="rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 p-6 backdrop-blur-sm sm:p-8">
-              <div className="rounded-lg bg-background p-7 text-foreground shadow-xl">
-                <div className="mb-6 flex size-12 items-center justify-center rounded-full bg-success-soft text-success-dark">
-                  <MessageCircle className="size-6" />
-                </div>
-                <h3 className="font-display text-3xl font-semibold">WhatsApp direto com a Mari Betioli</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Canal de áudio e texto para orientações educativas e acompanhamento durante a gravidez.
-                </p>
-                <div className="mt-7 flex items-center gap-3 border-t border-border pt-5 text-sm font-semibold text-primary">
-                  <Sparkles className="size-5" />
-                  Uma presença confiável até o nascimento
-                </div>
-              </div>
+            <div className="rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 p-3 backdrop-blur-sm sm:p-4">
+              <img
+                src={mariPhoto.url}
+                alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica, explicando o posicionamento no parto"
+                className="w-full rounded-md object-cover shadow-xl"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
