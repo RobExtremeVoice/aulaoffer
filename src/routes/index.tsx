@@ -4,12 +4,11 @@ import {
   Check,
   CheckCircle2,
   Heart,
-  MessageCircle,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 
 import heroImage from "@/assets/gestante-hero.jpg";
+import mariPhoto from "@/assets/mari-betioli.png.asset.json";
 import {
   Accordion,
   AccordionContent,
