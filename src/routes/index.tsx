@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowDown,
@@ -268,6 +268,25 @@ function PlanCard({
 
 function LandingPage() {
   const [upsellOpen, setUpsellOpen] = useState(false);
+  const [fixedCtaHidden, setFixedCtaHidden] = useState(true);
+  const heroCtaRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const target = heroCtaRef.current;
+    if (!target || typeof IntersectionObserver === "undefined") {
+      setFixedCtaHidden(false);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry) setFixedCtaHidden(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div id="top" className="min-h-screen overflow-x-hidden bg-background text-foreground">
@@ -306,12 +325,14 @@ function LandingPage() {
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0 lg:text-xl">
                 Você já entendeu por que um parto seguro e respeitoso não acontece por acaso. Agora escolha o nível de preparação que faz sentido para você e para o seu bebê.
               </p>
-              <Button asChild size="lg" className="mt-7 h-14 w-full rounded-full px-7 text-base font-bold shadow-lg sm:w-auto">
-                <a href="#planos">
-                  Quero escolher minha preparação
-                  <ArrowDown aria-hidden="true" />
-                </a>
-              </Button>
+              <div ref={heroCtaRef}>
+                <Button asChild size="lg" className="mt-7 h-14 w-full rounded-full px-7 text-base font-bold shadow-lg sm:w-auto">
+                  <a href="#planos">
+                    Quero escolher minha preparação
+                    <ArrowDown aria-hidden="true" />
+                  </a>
+                </Button>
+              </div>
               <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
                 Acesso vitalício • 7 dias de garantia • Pagamento seguro
               </p>
@@ -663,8 +684,13 @@ function LandingPage() {
         <p className="mx-auto max-w-2xl leading-relaxed">© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
       </footer>
 
-      <div className="fixed inset-x-3 bottom-3 z-50 sm:hidden">
-        <Button asChild size="lg" className="h-14 w-full rounded-full text-base font-bold shadow-xl">
+      <div
+        className={`fixed inset-x-3 bottom-3 z-50 transition-all duration-300 sm:hidden ${
+          fixedCtaHidden ? "pointer-events-none translate-y-4 opacity-0" : "translate-y-0 opacity-100"
+        }`}
+        aria-hidden={fixedCtaHidden || undefined}
+      >
+        <Button asChild size="lg" className="h-14 w-full rounded-full text-base font-bold shadow-xl" tabIndex={fixedCtaHidden ? -1 : 0}>
           <a href="#planos">Escolher meu plano</a>
         </Button>
       </div>
