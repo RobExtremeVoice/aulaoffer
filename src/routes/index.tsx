@@ -554,8 +554,8 @@ function LandingPage() {
       </main>
 
       <footer className="border-t border-border px-4 py-8 text-center text-xs text-muted-foreground sm:text-sm">
-        <img src={logoWhite.url} alt="O Poder do Parto" className="mx-auto w-40 sm:w-44" />
-        <p className="mt-4">© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
+        <img src={logo.url} alt="O Poder do Parto" className="mx-auto mb-4 w-40 sm:w-44 opacity-80" />
+        <p>© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
       </footer>
 
       <div className="fixed inset-x-3 bottom-3 z-50 sm:hidden">
