@@ -681,8 +681,13 @@ function LandingPage() {
         <p className="mx-auto max-w-2xl leading-relaxed">© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
       </footer>
 
-      <div className="fixed inset-x-3 bottom-3 z-50 sm:hidden">
-        <Button asChild size="lg" className="h-14 w-full rounded-full text-base font-bold shadow-xl">
+      <div
+        className={`fixed inset-x-3 bottom-3 z-50 transition-all duration-300 sm:hidden ${
+          fixedCtaHidden ? "pointer-events-none translate-y-4 opacity-0" : "translate-y-0 opacity-100"
+        }`}
+        aria-hidden={fixedCtaHidden || undefined}
+      >
+        <Button asChild size="lg" className="h-14 w-full rounded-full text-base font-bold shadow-xl" tabIndex={fixedCtaHidden ? -1 : 0}>
           <a href="#planos">Escolher meu plano</a>
         </Button>
       </div>
