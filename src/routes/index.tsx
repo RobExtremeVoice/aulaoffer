@@ -268,6 +268,22 @@ function PlanCard({
 
 function LandingPage() {
   const [upsellOpen, setUpsellOpen] = useState(false);
+  const [fixedCtaHidden, setFixedCtaHidden] = useState(true);
+  const heroCtaRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const target = heroCtaRef.current;
+    if (!target || typeof IntersectionObserver === "undefined") {
+      setFixedCtaHidden(false);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setFixedCtaHidden(entry.isIntersecting),
+      { threshold: 0.5 }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div id="top" className="min-h-screen overflow-x-hidden bg-background text-foreground">
