@@ -493,7 +493,7 @@ function LandingPage() {
               loading="lazy"
               decoding="async"
             />
-            <div className="mt-8 grid grid-cols-2 items-start gap-3 sm:gap-5 lg:mt-10 lg:grid-cols-4">
+            <div className="mt-8 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-10 lg:grid-cols-4">
               {[testimonial1, testimonial2, testimonial3, testimonial4].map((image, index) => (
                 <img
                   key={image.asset_id}
