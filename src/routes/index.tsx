@@ -9,6 +9,11 @@ import {
 
 import heroImage from "@/assets/gestante-hero.jpg";
 import mariPhoto from "@/assets/mari-betioli.png.asset.json";
+import testimonialWomen from "@/assets/depoimentos-mulheres.png.asset.json";
+import testimonial1 from "@/assets/depoimento-1.jpg.asset.json";
+import testimonial2 from "@/assets/depoimento-2.jpg.asset.json";
+import testimonial3 from "@/assets/depoimento-3.jpg.asset.json";
+import testimonial4 from "@/assets/depoimento-4.jpg.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -369,6 +374,34 @@ function LandingPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-muted py-20 lg:py-24">
+          <div className="page-wrap">
+            <div className="mx-auto max-w-3xl text-center">
+              <Eyebrow>Depoimentos reais</Eyebrow>
+              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+                Mais de 1.700 mulheres transformadas
+              </h2>
+            </div>
+            <img
+              src={testimonialWomen.url}
+              alt="Mulheres que participaram do Poder do Parto"
+              className="mx-auto mt-9 max-h-72 max-w-full object-contain"
+              loading="lazy"
+            />
+            <div className="mt-10 grid grid-cols-2 items-start gap-3 sm:gap-5 lg:grid-cols-4">
+              {[testimonial1, testimonial2, testimonial3, testimonial4].map((image, index) => (
+                <img
+                  key={image.asset_id}
+                  src={image.url}
+                  alt={`Depoimento de aluna ${index + 1}`}
+                  className="w-full rounded-lg border border-border bg-card shadow-sm"
+                  loading="lazy"
+                />
+              ))}
             </div>
           </div>
         </section>
