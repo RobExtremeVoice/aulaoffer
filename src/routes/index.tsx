@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/gestante-hero.jpg";
+import logo from "@/assets/logo.png.asset.json";
 import mariWithYouImage from "@/assets/mari-com-voce.png.asset.json";
 import mariPhoto from "@/assets/mari-betioli.png.asset.json";
 import testimonialWomen from "@/assets/depoimentos-mulheres.png.asset.json";
@@ -212,8 +213,8 @@ function LandingPage() {
       </div>
 
       <header className="page-wrap flex items-center justify-between py-5">
-        <a href="#top" className="font-display text-xl font-bold text-primary sm:text-2xl">
-          O Poder do Parto
+        <a href="#top" className="inline-flex">
+          <img src={logo.url} alt="O Poder do Parto" className="w-40 sm:w-52" />
         </a>
         <div className="hidden items-center gap-2 text-sm text-muted-foreground sm:flex">
           <span className="size-2.5 rounded-full bg-success" />
@@ -552,7 +553,8 @@ function LandingPage() {
       </main>
 
       <footer className="border-t border-border px-4 py-8 text-center text-xs text-muted-foreground sm:text-sm">
-        © 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico
+        <img src={logo.url} alt="O Poder do Parto" className="mx-auto mb-4 w-40 sm:w-44 opacity-80" />
+        <p>© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
       </footer>
 
       <div className="fixed inset-x-3 bottom-3 z-50 sm:hidden">
