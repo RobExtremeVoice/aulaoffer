@@ -154,6 +154,7 @@ function PlanCard({
   features,
   href,
   featured = false,
+  onSelect,
 }: {
   name: string;
   subtitle: string;
