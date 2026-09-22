@@ -1,6 +1,5 @@
 # Roadmap
 
-- [x] Melhorar foco, teclado, contraste e semântica.
-- [x] Corrigir enquadramento e grade das miniaturas dos módulos e bônus.
-- [x] Padronizar a abertura dos checkouts Hotmart em desktop e mobile.
-- [x] Validar desktop, mobile, teclado e links.
+- [x] Reordenar as seções para apresentar produto, valor, autoridade e prova antes dos planos.
+- [x] Preservar preços, ofertas, links e comportamentos atuais.
+- [x] Validar a nova sequência no computador e no celular.
