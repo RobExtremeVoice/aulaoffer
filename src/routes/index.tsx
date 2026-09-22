@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/gestante-hero.jpg";
+import logo from "@/assets/logo.png.asset.json";
+import logoWhite from "@/assets/logo-white.png.asset.json";
 import mariWithYouImage from "@/assets/mari-com-voce.png.asset.json";
 import mariPhoto from "@/assets/mari-betioli.png.asset.json";
 import testimonialWomen from "@/assets/depoimentos-mulheres.png.asset.json";
@@ -212,8 +214,8 @@ function LandingPage() {
       </div>
 
       <header className="page-wrap flex items-center justify-between py-5">
-        <a href="#top" className="font-display text-xl font-bold text-primary sm:text-2xl">
-          O Poder do Parto
+        <a href="#top" className="inline-flex">
+          <img src={logo.url} alt="O Poder do Parto" className="w-40 sm:w-52" />
         </a>
         <div className="hidden items-center gap-2 text-sm text-muted-foreground sm:flex">
           <span className="size-2.5 rounded-full bg-success" />
