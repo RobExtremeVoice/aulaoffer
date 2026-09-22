@@ -187,6 +187,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 }
 
 function PlanCard({
+  id,
   name,
   subtitle,
   amount,
@@ -196,6 +197,7 @@ function PlanCard({
   featured = false,
   onSelect,
 }: {
+  id?: string;
   name: string;
   subtitle: string;
   amount: string;
@@ -207,7 +209,8 @@ function PlanCard({
 }) {
   return (
     <article
-      className={`relative flex flex-col rounded-lg border bg-card p-5 shadow-sm sm:p-8 ${
+      id={id}
+      className={`relative flex scroll-mt-20 flex-col rounded-lg border bg-card p-5 shadow-sm sm:p-8 ${
         featured ? "border-2 border-primary shadow-xl lg:-translate-y-2" : "border-border"
       }`}
     >
@@ -471,7 +474,7 @@ function LandingPage() {
                 ))}
               </ul>
               <Button asChild size="lg" className="h-14 w-full rounded-full px-7 text-base font-bold sm:w-auto">
-                <a href="#planos">Quero o plano Completo</a>
+                <a href="#plano-completo">Quero o plano Completo</a>
               </Button>
               <p className="mt-4 max-w-2xl text-xs text-secondary-foreground/90">
                 Serviço educativo. Não substitui consulta, diagnóstico ou atendimento de emergência.
@@ -570,6 +573,7 @@ function LandingPage() {
                 onSelect={() => setUpsellOpen(true)}
               />
               <PlanCard
+                id="plano-completo"
                 name="O Poder do Parto Completo"
                 subtitle="Para quem quer todo o curso e a tranquilidade de poder falar diretamente com a Mari durante a gestação."
                 amount="40,75"
