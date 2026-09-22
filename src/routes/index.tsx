@@ -406,12 +406,12 @@ function LandingPage() {
         </section>
 
 
-        <section className="border-t border-primary-foreground/15 bg-primary py-16 text-primary-foreground sm:py-20 lg:py-24">
+        <section className="bg-secondary py-16 text-secondary-foreground sm:py-20 lg:py-24">
           <div className="page-wrap grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr] lg:gap-12">
             <div>
-              <Eyebrow light>Exclusivo do plano Completo</Eyebrow>
+              <Eyebrow>Exclusivo do plano Completo</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Mari com Você</h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary-foreground/85 sm:text-lg">
                 No plano Completo, além de todo o conteúdo do curso, você tem um canal direto com a Mari para organizar perguntas, esclarecer dúvidas educativas e se preparar para conversar com sua equipe.
               </p>
               <ul className="my-6 grid gap-3 sm:my-7">
@@ -422,23 +422,23 @@ function LandingPage() {
                   "Vagas limitadas para preservar a qualidade do atendimento",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <Check className="mt-0.5 size-5 shrink-0 text-success-bright" strokeWidth={3} />
+                    <Check className="mt-0.5 size-5 shrink-0 text-success-dark" strokeWidth={3} />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" variant="secondary" className="h-14 w-full rounded-full px-7 text-base font-bold sm:w-auto">
+              <Button asChild size="lg" className="h-14 w-full rounded-full px-7 text-base font-bold sm:w-auto">
                 <a href="#planos">Quero o plano Completo</a>
               </Button>
-              <p className="mt-4 max-w-2xl text-xs text-primary-foreground/65">
+              <p className="mt-4 max-w-2xl text-xs text-secondary-foreground/70">
                 Serviço educativo. Não substitui consulta, diagnóstico ou atendimento de emergência.
               </p>
             </div>
-            <div className="rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 p-3 backdrop-blur-sm sm:p-4">
+            <div className="rounded-lg border border-border bg-card p-3 shadow-xl sm:p-4">
               <img
                 src={mariWithYouImage.url}
                 alt="Mari com Você — acompanhamento individual pelo WhatsApp até o parto"
-                className="w-full rounded-md object-cover shadow-xl"
+                className="w-full rounded-md object-cover"
                 loading="lazy"
               />
             </div>
