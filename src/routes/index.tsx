@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/gestante-hero.jpg";
+import mariWithYouImage from "@/assets/mari-com-voce.png.asset.json";
 import mariPhoto from "@/assets/mari-betioli.png.asset.json";
 import testimonialWomen from "@/assets/depoimentos-mulheres.png.asset.json";
 import testimonial1 from "@/assets/depoimento-1.jpg.asset.json";
@@ -341,8 +342,8 @@ function LandingPage() {
             </div>
             <div className="rounded-lg border border-primary-foreground/20 bg-primary-foreground/10 p-3 backdrop-blur-sm sm:p-4">
               <img
-                src={mariPhoto.url}
-                alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica, explicando o posicionamento no parto"
+                src={mariWithYouImage.url}
+                alt="Mari com Você — acompanhamento individual pelo WhatsApp até o parto"
                 className="w-full rounded-md object-cover shadow-xl"
                 loading="lazy"
               />
@@ -358,6 +359,14 @@ function LandingPage() {
               <p className="mt-4 text-muted-foreground">
                 Uma preparação criada a partir de anos acompanhando gestantes antes, durante e depois do parto.
               </p>
+            </div>
+            <div className="overflow-hidden rounded-lg border border-border bg-card p-3 shadow-lg sm:p-4">
+              <img
+                src={mariPhoto.url}
+                alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica"
+                className="aspect-square w-full rounded-md object-cover"
+                loading="lazy"
+              />
             </div>
             <div>
               <Eyebrow>Quem vai te acompanhar</Eyebrow>
