@@ -188,8 +188,34 @@
   .page-wrap {
     width: min(1160px, calc(100% - 28px));
   }
+}
 
+/* Espaco para o botao fixo de CTA no mobile */
+@media (max-width: 639px) {
   body {
-    padding-bottom: 4.5rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .comparison-row > div {
+    padding: 0.875rem 1rem;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
