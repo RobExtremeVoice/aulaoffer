@@ -108,7 +108,47 @@ const modules = [
   ["Módulo 8", "Plano de Parto", "Crie um plano de parto que funciona e seja respeitado.", modulo8.url],
 ] as const;
 
-const bonuses = [bonus1, bonus2, bonus3, bonus4, bonus5, bonus6, bonus7];
+const bonuses = [
+  ["Bônus 1", "Posições para encaixar o bebê", bonus1],
+  ["Bônus 2", "Massagem com convidada especialista", bonus2],
+  ["Bônus 3", "Preparando o seu acompanhante", bonus3],
+  ["Bônus 4", "Comunidade no WhatsApp", bonus4],
+  ["Bônus 5", "O pós-parto", bonus5],
+  ["Bônus 6", "Respiração na gravidez e no parto", bonus6],
+  ["Bônus 7", "10 ensinamentos para o bebê dormir melhor", bonus7],
+] as const;
+
+const testimonials = [
+  [testimonial1, "Aluna conta que fez os exercícios recomendados e sua bebê nasceu após um parto normal"],
+  [testimonial2, "Aluna agradece pelas orientações que a ajudaram a manter a calma e chegar ao hospital no momento certo"],
+  [testimonial3, "Aluna recomenda o curso da Mari e destaca a importância de informação, movimento e hidratação"],
+  [testimonial4, "Aluna com 38 semanas elogia o curso enquanto aguarda a chegada do bebê"],
+] as const;
+
+const checkoutWindowName = "hotmart-checkout";
+
+function openCheckout(event: React.MouseEvent<HTMLAnchorElement>) {
+  if (typeof window === "undefined" || window.matchMedia("(max-width: 767px)").matches) return;
+
+  event.preventDefault();
+  const width = Math.min(1080, window.screen.availWidth - 48);
+  const height = Math.min(760, window.screen.availHeight - 48);
+  const left = Math.max(24, Math.round((window.screen.availWidth - width) / 2));
+  const top = Math.max(24, Math.round((window.screen.availHeight - height) / 2));
+  const checkout = window.open(
+    event.currentTarget.href,
+    checkoutWindowName,
+    `popup=yes,width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`,
+  );
+
+  if (checkout) {
+    checkout.opener = null;
+    checkout.focus();
+    return;
+  }
+
+  window.location.assign(event.currentTarget.href);
+}
 
 const faqs = [
   {
@@ -140,7 +180,7 @@ const faqs = [
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p className={light ? "eyebrow text-primary-foreground/70" : "eyebrow text-primary"}>
+    <p className={light ? "eyebrow text-primary-foreground/90" : "eyebrow text-primary"}>
       {children}
     </p>
   );
@@ -193,7 +233,7 @@ function PlanCard({
       <ul className="my-6 flex flex-1 flex-col gap-3 sm:my-7">
         {features.map((feature) => (
           <li key={feature} className="flex gap-3 text-sm sm:text-base">
-            <Check className="mt-0.5 size-5 shrink-0 text-success" strokeWidth={3} />
+            <Check className="mt-0.5 size-5 shrink-0 text-success" strokeWidth={3} aria-hidden="true" />
             <span>{feature}</span>
           </li>
         ))}
@@ -214,7 +254,7 @@ function PlanCard({
           variant={featured ? "default" : "outline"}
           className="h-14 w-full rounded-full text-base font-bold shadow-none"
         >
-          <a href={href}>
+           <a href={href} onClick={href.startsWith("https://pay.hotmart.com/") ? openCheckout : undefined}>
             {featured ? "Quero a preparação completa" : "Escolher o Essencial"}
           </a>
         </Button>
@@ -230,27 +270,33 @@ function LandingPage() {
   const [upsellOpen, setUpsellOpen] = useState(false);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+    <div id="top" className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <a
+        href="#conteudo-principal"
+        className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-background px-4 py-3 font-bold text-foreground shadow-lg transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+      >
+        Pular para o conteúdo principal
+      </a>
       <div className="bg-primary px-4 py-2.5 text-center text-xs font-bold leading-snug text-primary-foreground sm:text-sm">
         A aula terminou. Agora escolha como você quer se preparar.
       </div>
 
       <header className="page-wrap flex items-center justify-between gap-4 py-4 sm:py-5">
-        <a href="#top" className="inline-flex shrink-0">
+        <a href="#top" aria-label="O Poder do Parto — voltar ao início" className="inline-flex shrink-0 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
           <img src={logo.url} alt="O Poder do Parto" className="w-32 sm:w-52" width={512} height={160} />
         </a>
         <div className="hidden items-center gap-2 text-sm text-muted-foreground sm:flex">
-          <span className="size-2.5 shrink-0 rounded-full bg-success" />
+          <CheckCircle2 className="size-4 shrink-0 text-success-dark" aria-hidden="true" />
           Ambiente seguro • Garantia de 7 dias
         </div>
       </header>
 
-      <main id="top">
+      <main id="conteudo-principal" tabIndex={-1}>
         <section className="relative overflow-hidden pb-16 pt-6 lg:pb-24 lg:pt-14">
           <div className="page-wrap grid items-center gap-10 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
             <div className="relative z-10 text-center lg:text-left">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-success-soft px-3 py-1.5 text-xs font-bold text-success-dark sm:px-4 sm:py-2 sm:text-sm">
-                <CheckCircle2 className="size-4 shrink-0 sm:size-5" />
+                <CheckCircle2 className="size-4 shrink-0 sm:size-5" aria-hidden="true" />
                 Você concluiu a aula gratuita
               </div>
               <Eyebrow>Seu próximo passo</Eyebrow>
@@ -263,7 +309,7 @@ function LandingPage() {
               <Button asChild size="lg" className="mt-7 h-14 w-full rounded-full px-7 text-base font-bold shadow-lg sm:w-auto">
                 <a href="#planos">
                   Quero escolher minha preparação
-                  <ArrowDown />
+                  <ArrowDown aria-hidden="true" />
                 </a>
               </Button>
               <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
@@ -284,7 +330,7 @@ function LandingPage() {
               />
               <div className="absolute bottom-4 left-2 rounded-lg border border-primary-foreground/40 bg-background/90 px-3 py-2.5 shadow-lg backdrop-blur-sm sm:bottom-5 sm:left-[-1rem] sm:px-4 sm:py-3">
                 <div className="flex items-center gap-3">
-                  <Heart className="size-5 shrink-0 fill-primary text-primary" />
+                   <Heart className="size-5 shrink-0 fill-primary text-primary" aria-hidden="true" />
                   <div>
                     <p className="text-sm font-bold">Mais confiança para escolher</p>
                     <p className="text-xs text-muted-foreground">Informação para você e seu bebê</p>
@@ -350,21 +396,39 @@ function LandingPage() {
                 Veja a diferença entre os planos
               </h2>
             </div>
-            <div className="rounded-lg border border-border bg-card shadow-sm">
-              <div>
-                <div className="comparison-row bg-muted font-bold">
-                  <div>O que você recebe</div>
-                  <div>Essencial</div>
-                  <div>Completo</div>
-                </div>
-                {comparison.map(([label, essential, complete]) => (
-                  <div key={label} className="comparison-row border-t border-border">
-                    <div>{label}</div>
-                    <div>{essential ? <Check className="mx-auto text-success" strokeWidth={3} /> : "—"}</div>
-                    <div>{complete ? <Check className="mx-auto text-success" strokeWidth={3} /> : "—"}</div>
-                  </div>
-                ))}
-              </div>
+            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+              <table className="w-full table-fixed text-left text-[0.78rem] sm:text-base">
+                <caption className="sr-only">Comparação dos benefícios dos planos Essencial e Completo</caption>
+                <colgroup>
+                  <col className="w-[52%] sm:w-[47%]" />
+                  <col className="w-[24%] sm:w-[26.5%]" />
+                  <col className="w-[24%] sm:w-[26.5%]" />
+                </colgroup>
+                <thead className="bg-muted">
+                  <tr>
+                    <th scope="col" className="p-3 font-bold sm:p-5">O que você recebe</th>
+                    <th scope="col" className="border-l border-border p-2 text-center font-bold sm:p-5">Essencial</th>
+                    <th scope="col" className="border-l border-border p-2 text-center font-bold sm:p-5">Completo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map(([label, essential, complete]) => (
+                    <tr key={label} className="border-t border-border">
+                      <th scope="row" className="p-3 font-medium leading-snug sm:p-5">{label}</th>
+                      {[essential, complete].map((included, index) => (
+                        <td key={index} className="border-l border-border p-2 text-center sm:p-5">
+                          <span className="sr-only">{included ? "Incluído" : "Não incluído"}</span>
+                          {included ? (
+                            <Check className="mx-auto size-5 text-success-dark" strokeWidth={3} aria-hidden="true" />
+                          ) : (
+                            <span aria-hidden="true">—</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -383,13 +447,17 @@ function LandingPage() {
                   key={number}
                   className="overflow-hidden rounded-lg border border-border bg-card shadow-sm"
                 >
-                  <img
-                    src={image}
-                    alt={`${number} — ${title}`}
-                    className="aspect-[4/3] w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                   <div className="aspect-video w-full overflow-hidden bg-secondary">
+                     <img
+                       src={image}
+                       alt={`Capa do ${number}: ${title}`}
+                       width={1024}
+                       height={576}
+                       className="h-full w-full object-contain"
+                       loading="lazy"
+                       decoding="async"
+                     />
+                   </div>
                   <div className="p-4 sm:p-5">
                     <span className="text-xs font-bold uppercase tracking-wide text-primary">
                       {number}
@@ -413,20 +481,27 @@ function LandingPage() {
                 Recursos extras para você se sentir ainda mais segura
               </h2>
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-7">
-              {bonuses.map((image, i) => (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {bonuses.map(([number, title, image]) => (
                 <article
                   key={image.asset_id}
                   className="overflow-hidden rounded-lg bg-primary-foreground/10"
                 >
-                  <img
-                    src={image.url}
-                    alt={`Bônus ${i + 1}`}
-                    className="aspect-[3/4] w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="p-2.5 text-center text-xs font-bold sm:p-3 sm:text-sm">Bônus {i + 1}</div>
+                  <div className="aspect-video w-full overflow-hidden bg-primary-foreground/10">
+                    <img
+                      src={image.url}
+                      alt={`Capa do ${number}: ${title}`}
+                      width={1600}
+                      height={900}
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="p-3 text-center sm:p-4">
+                    <p className="text-xs font-bold uppercase text-primary-foreground/90">{number}</p>
+                    <h3 className="mt-1 text-sm font-bold leading-snug sm:text-base">{title}</h3>
+                  </div>
                 </article>
               ))}
             </div>
@@ -439,7 +514,7 @@ function LandingPage() {
             <div>
               <Eyebrow>Exclusivo do plano Completo</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Mari com Você</h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary-foreground/85 sm:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary-foreground sm:text-lg">
                 No plano Completo, além de todo o conteúdo do curso, você tem um canal direto com a Mari para organizar perguntas, esclarecer dúvidas educativas e se preparar para conversar com sua equipe.
               </p>
               <ul className="my-6 grid gap-3 sm:my-7">
@@ -450,7 +525,7 @@ function LandingPage() {
                   "Vagas limitadas para preservar a qualidade do atendimento",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <Check className="mt-0.5 size-5 shrink-0 text-success-dark" strokeWidth={3} />
+                     <Check className="mt-0.5 size-5 shrink-0 text-success-dark" strokeWidth={3} aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -458,7 +533,7 @@ function LandingPage() {
               <Button asChild size="lg" className="h-14 w-full rounded-full px-7 text-base font-bold sm:w-auto">
                 <a href="#planos">Quero o plano Completo</a>
               </Button>
-              <p className="mt-4 max-w-2xl text-xs text-secondary-foreground/70">
+              <p className="mt-4 max-w-2xl text-xs text-secondary-foreground/90">
                 Serviço educativo. Não substitui consulta, diagnóstico ou atendimento de emergência.
               </p>
             </div>
@@ -487,18 +562,18 @@ function LandingPage() {
             <div>
               <Eyebrow>Quem vai te acompanhar</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Mari Betioli</h2>
-              <div className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
+              <ul className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
                 {[
                   "19 anos trabalhando com gestantes",
                   "Obstetriz, doula e educadora perinatal",
                   "Experiência no Brasil, Portugal e EUA",
                   "Formação em Spinning Babies e Active Birth",
                 ].map((item) => (
-                  <div key={item} className="rounded-lg bg-muted p-4 text-sm font-semibold sm:p-5 sm:text-base">
+                  <li key={item} className="rounded-lg bg-muted p-4 text-sm font-semibold sm:p-5 sm:text-base">
                     {item}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </section>
@@ -519,11 +594,11 @@ function LandingPage() {
               decoding="async"
             />
             <div className="mt-8 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-10 lg:grid-cols-4">
-              {[testimonial1, testimonial2, testimonial3, testimonial4].map((image, index) => (
+              {testimonials.map(([image, description]) => (
                 <img
                   key={image.asset_id}
                   src={image.url}
-                  alt={`Depoimento de aluna ${index + 1}`}
+                  alt={description}
                   className="w-full rounded-lg border border-border bg-card shadow-sm"
                   loading="lazy"
                   decoding="async"
@@ -536,7 +611,7 @@ function LandingPage() {
         <section id="garantia" className="page-wrap scroll-mt-6 pb-16 sm:pb-24">
           <div className="grid items-center gap-5 rounded-lg bg-success-soft p-6 sm:grid-cols-[auto_1fr] sm:gap-6 sm:p-12">
             <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-success text-success-foreground sm:size-24">
-              <ShieldCheck className="size-8 sm:size-11" />
+               <ShieldCheck className="size-8 sm:size-11" aria-hidden="true" />
             </div>
             <div>
               <Eyebrow>Seu risco é zero</Eyebrow>
@@ -586,7 +661,7 @@ function LandingPage() {
       </main>
 
       <footer className="border-t border-border px-4 py-8 text-center text-xs text-muted-foreground sm:text-sm">
-        <img src={logo.url} alt="O Poder do Parto" className="mx-auto mb-4 w-36 opacity-80 sm:w-44" loading="lazy" />
+         <img src={logo.url} alt="O Poder do Parto" className="mx-auto mb-4 w-36 opacity-80 sm:w-44" width={512} height={160} loading="lazy" decoding="async" />
         <p className="mx-auto max-w-2xl leading-relaxed">© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
       </footer>
 
@@ -597,7 +672,7 @@ function LandingPage() {
       </div>
 
       <Dialog open={upsellOpen} onOpenChange={setUpsellOpen}>
-        <DialogContent className="max-w-[26rem] rounded-2xl sm:rounded-2xl">
+        <DialogContent className="max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-[26rem] overflow-y-auto rounded-lg p-5 sm:rounded-lg sm:p-6">
           <DialogHeader>
             <span className="eyebrow text-primary">Oferta especial — só agora</span>
             <DialogTitle className="font-display text-2xl leading-tight">
@@ -616,12 +691,12 @@ function LandingPage() {
           </div>
           <div className="grid gap-2.5">
             <Button asChild size="lg" className="h-14 w-full rounded-full text-base font-bold">
-              <a href="https://pay.hotmart.com/X88395451D?off=y194vq5g&checkoutMode=10">
+               <a href="https://pay.hotmart.com/X88395451D?off=y194vq5g&checkoutMode=10" onClick={openCheckout}>
                 Sim, quero esta opção
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="h-12 w-full rounded-full text-sm font-bold">
-              <a href="https://pay.hotmart.com/X88395451D?off=o69s199w&checkoutMode=10">
+               <a href="https://pay.hotmart.com/X88395451D?off=o69s199w&checkoutMode=10" onClick={openCheckout}>
                 Continuar apenas com o Essencial
               </a>
             </Button>
