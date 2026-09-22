@@ -332,8 +332,8 @@ function LandingPage() {
               <PlanCard
                 name="O Poder do Parto Completo"
                 subtitle="Para quem quer todo o curso e a tranquilidade de poder falar diretamente com a Mari durante a gestação."
-                amount="32,83"
-                cash="394,00"
+                amount="40,75"
+                cash="489,00"
                 features={completeFeatures}
                 href="https://pay.hotmart.com/X88395451D?off=7skbnr37&checkoutMode=10"
                 featured
