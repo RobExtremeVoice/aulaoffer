@@ -15,6 +15,20 @@ import testimonial1 from "@/assets/depoimento-1.jpg.asset.json";
 import testimonial2 from "@/assets/depoimento-2.jpg.asset.json";
 import testimonial3 from "@/assets/depoimento-3.jpg.asset.json";
 import testimonial4 from "@/assets/depoimento-4.jpg.asset.json";
+import modulo1 from "@/assets/modulo-1.jpg.asset.json";
+import modulo2 from "@/assets/modulo-2.jpg.asset.json";
+import modulo3 from "@/assets/modulo-3.jpg.asset.json";
+import modulo4 from "@/assets/modulo-4.jpg.asset.json";
+import modulo6 from "@/assets/modulo-6.jpg.asset.json";
+import modulo7 from "@/assets/modulo-7.jpg.asset.json";
+import modulo8 from "@/assets/modulo-8.jpg.asset.json";
+import bonus1 from "@/assets/bonus-1.jpg.asset.json";
+import bonus2 from "@/assets/bonus-2.jpg.asset.json";
+import bonus3 from "@/assets/bonus-3.jpg.asset.json";
+import bonus4 from "@/assets/bonus-4.jpg.asset.json";
+import bonus5 from "@/assets/bonus-5.jpg.asset.json";
+import bonus6 from "@/assets/bonus-6.jpg.asset.json";
+import bonus7 from "@/assets/bonus-7.jpg.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -70,6 +84,19 @@ const comparison = [
   ["Mensagens de texto e áudio", false, true],
   ["Acompanhamento durante a gestação, até o parto", false, true],
 ] as const;
+
+const modules = [
+  ["Módulo 1", "Primeiros Passos", "Entenda tudo sobre a jornada que está começando.", modulo1.url],
+  ["Módulo 2", "A Realidade do Parto", "Descubra como funciona o sistema e garanta um parto respeitoso.", modulo2.url],
+  ["Módulo 3", "Preparo Emocional", "Trabalhe o medo, a ansiedade e fortaleça sua confiança.", modulo3.url],
+  ["Módulo 4", "Como Funciona o Parto", "Identifique e saiba o que fazer em cada fase do trabalho de parto.", modulo4.url],
+  ["Módulo 5", "O Corpo na Gravidez", "Cuide de si e prepare-se fisicamente para o parto.", modulo4.url],
+  ["Módulo 6", "Indução & Cesárea", "Entenda indicações, intervenções e parto normal após cesárea.", modulo6.url],
+  ["Módulo 7", "Técnicas de Alívio da Dor", "Respiração, massagem, acupressão e outros métodos naturais.", modulo7.url],
+  ["Módulo 8", "Plano de Parto", "Crie um plano de parto que funciona e seja respeitado.", modulo8.url],
+] as const;
+
+const bonuses = [bonus1, bonus2, bonus3, bonus4, bonus5, bonus6, bonus7];
 
 const faqs = [
   {
@@ -311,6 +338,70 @@ function LandingPage() {
             </div>
           </div>
         </section>
+
+        <section className="bg-muted py-20 lg:py-24">
+          <div className="page-wrap">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <Eyebrow>Por dentro do curso</Eyebrow>
+              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+                Uma preparação completa, passo a passo
+              </h2>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {modules.map(([number, title, description, image]) => (
+                <article
+                  key={number}
+                  className="overflow-hidden rounded-lg border border-border bg-card shadow-sm"
+                >
+                  <img
+                    src={image}
+                    alt={`${number} — ${title}`}
+                    className="aspect-[4/3] w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="p-5">
+                    <span className="text-xs font-bold uppercase tracking-wide text-primary">
+                      {number}
+                    </span>
+                    <h3 className="mt-1 font-display text-lg font-bold">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-primary py-20 text-primary-foreground lg:py-24">
+          <div className="page-wrap">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <Eyebrow light>Bônus incríveis</Eyebrow>
+              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+                Recursos extras para você se sentir ainda mais segura
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+              {bonuses.map((image, i) => (
+                <article
+                  key={image.asset_id}
+                  className="overflow-hidden rounded-lg bg-primary-foreground/10"
+                >
+                  <img
+                    src={image.url}
+                    alt={`Bônus ${i + 1}`}
+                    className="aspect-[3/4] w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="p-3 text-center text-sm font-bold">Bônus {i + 1}</div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
 
         <section className="bg-primary py-20 text-primary-foreground lg:py-24">
           <div className="page-wrap grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
