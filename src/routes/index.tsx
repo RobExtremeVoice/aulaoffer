@@ -352,22 +352,7 @@ function LandingPage() {
         </section>
 
         <section className="py-24">
-          <div className="page-wrap grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr]">
-            <div className="text-center lg:text-left">
-              <p className="font-display text-7xl font-bold leading-none text-primary">+1.700</p>
-              <p className="mt-2 text-xl font-bold text-foreground">mulheres transformadas</p>
-              <p className="mt-4 text-muted-foreground">
-                Uma preparação criada a partir de anos acompanhando gestantes antes, durante e depois do parto.
-              </p>
-            </div>
-            <div className="overflow-hidden rounded-lg border border-border bg-card p-3 shadow-lg sm:p-4">
-              <img
-                src={mariPhoto.url}
-                alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica"
-                className="aspect-square w-full rounded-md object-cover"
-                loading="lazy"
-              />
-            </div>
+          <div className="page-wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <Eyebrow>Quem vai te acompanhar</Eyebrow>
               <h2 className="mt-3 font-display text-5xl font-semibold">Mari Betioli</h2>
@@ -383,6 +368,14 @@ function LandingPage() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="mx-auto w-full max-w-md overflow-hidden rounded-lg border border-border bg-card p-3 shadow-lg sm:p-4">
+              <img
+                src={mariPhoto.url}
+                alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica"
+                className="aspect-square w-full rounded-md object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
