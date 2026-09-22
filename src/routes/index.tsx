@@ -144,6 +144,7 @@ function PlanCard({
   amount,
   cash,
   features,
+  href,
   featured = false,
 }: {
   name: string;
@@ -151,6 +152,7 @@ function PlanCard({
   amount: string;
   cash: string;
   features: string[];
+  href: string;
   featured?: boolean;
 }) {
   return (
