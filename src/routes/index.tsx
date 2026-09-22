@@ -339,6 +339,70 @@ function LandingPage() {
           </div>
         </section>
 
+        <section className="bg-muted py-20 lg:py-24">
+          <div className="page-wrap">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <Eyebrow>Por dentro do curso</Eyebrow>
+              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+                Uma preparação completa, passo a passo
+              </h2>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {modules.map(([number, title, description, image]) => (
+                <article
+                  key={number}
+                  className="overflow-hidden rounded-lg border border-border bg-card shadow-sm"
+                >
+                  <img
+                    src={image}
+                    alt={`${number} — ${title}`}
+                    className="aspect-[4/3] w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="p-5">
+                    <span className="text-xs font-bold uppercase tracking-wide text-primary">
+                      {number}
+                    </span>
+                    <h3 className="mt-1 font-display text-lg font-bold">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-primary py-20 text-primary-foreground lg:py-24">
+          <div className="page-wrap">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <Eyebrow light>Bônus incríveis</Eyebrow>
+              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+                Recursos extras para você se sentir ainda mais segura
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+              {bonuses.map((image, i) => (
+                <article
+                  key={image.asset_id}
+                  className="overflow-hidden rounded-lg bg-primary-foreground/10"
+                >
+                  <img
+                    src={image.url}
+                    alt={`Bônus ${i + 1}`}
+                    className="aspect-[3/4] w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="p-3 text-center text-sm font-bold">Bônus {i + 1}</div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+
         <section className="bg-primary py-20 text-primary-foreground lg:py-24">
           <div className="page-wrap grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
             <div>
