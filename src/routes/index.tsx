@@ -322,12 +322,14 @@ function LandingPage() {
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0 lg:text-xl">
                 Você já entendeu por que um parto seguro e respeitoso não acontece por acaso. Agora escolha o nível de preparação que faz sentido para você e para o seu bebê.
               </p>
-              <Button asChild size="lg" className="mt-7 h-14 w-full rounded-full px-7 text-base font-bold shadow-lg sm:w-auto">
-                <a href="#planos">
-                  Quero escolher minha preparação
-                  <ArrowDown aria-hidden="true" />
-                </a>
-              </Button>
+              <div ref={heroCtaRef}>
+                <Button asChild size="lg" className="mt-7 h-14 w-full rounded-full px-7 text-base font-bold shadow-lg sm:w-auto">
+                  <a href="#planos">
+                    Quero escolher minha preparação
+                    <ArrowDown aria-hidden="true" />
+                  </a>
+                </Button>
+              </div>
               <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
                 Acesso vitalício • 7 dias de garantia • Pagamento seguro
               </p>
