@@ -610,7 +610,7 @@ function LandingPage() {
           <div className="rounded-lg bg-success-soft px-4 py-4 text-center">
             <p className="text-sm text-muted-foreground line-through">de R$ 97,00</p>
             <p className="font-display text-4xl font-bold text-success-dark">
-              por 12x R$ 40,75
+              por R$ 48,50
             </p>
             <p className="mt-1 text-xs font-bold uppercase tracking-wide text-success-dark">50% de desconto</p>
           </div>
