@@ -321,12 +321,9 @@ function LandingPage() {
               <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
                 Veja a diferença entre os planos
               </h2>
-              <p className="mt-3 text-sm text-muted-foreground sm:hidden">
-                Arraste a tabela para o lado para ver os dois planos.
-              </p>
             </div>
-            <div className="overflow-x-auto rounded-lg border border-border bg-card shadow-sm">
-              <div className="min-w-[560px]">
+            <div className="rounded-lg border border-border bg-card shadow-sm">
+              <div>
                 <div className="comparison-row bg-muted font-bold">
                   <div>O que você recebe</div>
                   <div>Essencial</div>

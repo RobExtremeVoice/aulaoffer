@@ -196,8 +196,14 @@
     padding-bottom: calc(5rem + env(safe-area-inset-bottom));
   }
 
+  .comparison-row {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.7fr) minmax(0, 0.7fr);
+    font-size: 0.8125rem;
+    line-height: 1.35;
+  }
+
   .comparison-row > div {
-    padding: 0.875rem 1rem;
+    padding: 0.75rem 0.625rem;
   }
 }
 
