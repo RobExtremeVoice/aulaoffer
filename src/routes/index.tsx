@@ -15,6 +15,20 @@ import testimonial1 from "@/assets/depoimento-1.jpg.asset.json";
 import testimonial2 from "@/assets/depoimento-2.jpg.asset.json";
 import testimonial3 from "@/assets/depoimento-3.jpg.asset.json";
 import testimonial4 from "@/assets/depoimento-4.jpg.asset.json";
+import modulo1 from "@/assets/modulo-1.jpg.asset.json";
+import modulo2 from "@/assets/modulo-2.jpg.asset.json";
+import modulo3 from "@/assets/modulo-3.jpg.asset.json";
+import modulo4 from "@/assets/modulo-4.jpg.asset.json";
+import modulo6 from "@/assets/modulo-6.jpg.asset.json";
+import modulo7 from "@/assets/modulo-7.jpg.asset.json";
+import modulo8 from "@/assets/modulo-8.jpg.asset.json";
+import bonus1 from "@/assets/bonus-1.jpg.asset.json";
+import bonus2 from "@/assets/bonus-2.jpg.asset.json";
+import bonus3 from "@/assets/bonus-3.jpg.asset.json";
+import bonus4 from "@/assets/bonus-4.jpg.asset.json";
+import bonus5 from "@/assets/bonus-5.jpg.asset.json";
+import bonus6 from "@/assets/bonus-6.jpg.asset.json";
+import bonus7 from "@/assets/bonus-7.jpg.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -70,6 +84,19 @@ const comparison = [
   ["Mensagens de texto e áudio", false, true],
   ["Acompanhamento durante a gestação, até o parto", false, true],
 ] as const;
+
+const modules = [
+  ["Módulo 1", "Primeiros Passos", "Entenda tudo sobre a jornada que está começando.", modulo1.url],
+  ["Módulo 2", "A Realidade do Parto", "Descubra como funciona o sistema e garanta um parto respeitoso.", modulo2.url],
+  ["Módulo 3", "Preparo Emocional", "Trabalhe o medo, a ansiedade e fortaleça sua confiança.", modulo3.url],
+  ["Módulo 4", "Como Funciona o Parto", "Identifique e saiba o que fazer em cada fase do trabalho de parto.", modulo4.url],
+  ["Módulo 5", "O Corpo na Gravidez", "Cuide de si e prepare-se fisicamente para o parto.", modulo4.url],
+  ["Módulo 6", "Indução & Cesárea", "Entenda indicações, intervenções e parto normal após cesárea.", modulo6.url],
+  ["Módulo 7", "Técnicas de Alívio da Dor", "Respiração, massagem, acupressão e outros métodos naturais.", modulo7.url],
+  ["Módulo 8", "Plano de Parto", "Crie um plano de parto que funciona e seja respeitado.", modulo8.url],
+] as const;
+
+const bonuses = [bonus1, bonus2, bonus3, bonus4, bonus5, bonus6, bonus7];
 
 const faqs = [
   {
