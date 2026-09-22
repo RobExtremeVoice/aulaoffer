@@ -9,7 +9,6 @@ import {
 
 import heroImage from "@/assets/gestante-hero.jpg";
 import logo from "@/assets/logo.png.asset.json";
-import logoWhite from "@/assets/logo-white.png.asset.json";
 import mariWithYouImage from "@/assets/mari-com-voce.png.asset.json";
 import mariPhoto from "@/assets/mari-betioli.png.asset.json";
 import testimonialWomen from "@/assets/depoimentos-mulheres.png.asset.json";
