@@ -118,6 +118,13 @@ const bonuses = [
   ["Bônus 7", "10 ensinamentos para o bebê dormir melhor", bonus7],
 ] as const;
 
+const testimonials = [
+  [testimonial1, "Aluna conta que fez os exercícios recomendados e sua bebê nasceu após um parto normal"],
+  [testimonial2, "Aluna agradece pelas orientações que a ajudaram a manter a calma e chegar ao hospital no momento certo"],
+  [testimonial3, "Aluna recomenda o curso da Mari e destaca a importância de informação, movimento e hidratação"],
+  [testimonial4, "Aluna com 38 semanas elogia o curso enquanto aguarda a chegada do bebê"],
+] as const;
+
 const checkoutWindowName = "hotmart-checkout";
 
 function openCheckout(event: React.MouseEvent<HTMLAnchorElement>) {
@@ -492,7 +499,7 @@ function LandingPage() {
                     />
                   </div>
                   <div className="p-3 text-center sm:p-4">
-                    <p className="text-xs font-bold uppercase text-primary-foreground/80">{number}</p>
+                    <p className="text-xs font-bold uppercase text-primary-foreground/90">{number}</p>
                     <h3 className="mt-1 text-sm font-bold leading-snug sm:text-base">{title}</h3>
                   </div>
                 </article>
@@ -507,7 +514,7 @@ function LandingPage() {
             <div>
               <Eyebrow>Exclusivo do plano Completo</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Mari com Você</h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary-foreground/85 sm:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary-foreground sm:text-lg">
                 No plano Completo, além de todo o conteúdo do curso, você tem um canal direto com a Mari para organizar perguntas, esclarecer dúvidas educativas e se preparar para conversar com sua equipe.
               </p>
               <ul className="my-6 grid gap-3 sm:my-7">
@@ -526,7 +533,7 @@ function LandingPage() {
               <Button asChild size="lg" className="h-14 w-full rounded-full px-7 text-base font-bold sm:w-auto">
                 <a href="#planos">Quero o plano Completo</a>
               </Button>
-              <p className="mt-4 max-w-2xl text-xs text-secondary-foreground/70">
+              <p className="mt-4 max-w-2xl text-xs text-secondary-foreground/90">
                 Serviço educativo. Não substitui consulta, diagnóstico ou atendimento de emergência.
               </p>
             </div>
@@ -587,11 +594,11 @@ function LandingPage() {
               decoding="async"
             />
             <div className="mt-8 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-10 lg:grid-cols-4">
-              {[testimonial1, testimonial2, testimonial3, testimonial4].map((image, index) => (
+              {testimonials.map(([image, description]) => (
                 <img
                   key={image.asset_id}
                   src={image.url}
-                  alt={`Depoimento de aluna ${index + 1}`}
+                  alt={description}
                   className="w-full rounded-lg border border-border bg-card shadow-sm"
                   loading="lazy"
                   decoding="async"
