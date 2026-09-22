@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowDown,
@@ -37,6 +38,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -154,6 +162,7 @@ function PlanCard({
   features: string[];
   href: string;
   featured?: boolean;
+  onSelect?: () => void;
 }) {
   return (
     <article
@@ -188,16 +197,27 @@ function PlanCard({
           </li>
         ))}
       </ul>
-      <Button
-        asChild
-        size="lg"
-        variant={featured ? "default" : "outline"}
-        className="h-14 w-full rounded-full text-base font-bold shadow-none"
-      >
-        <a href={href}>
-          {featured ? "Quero a preparação completa" : "Escolher o Essencial"}
-        </a>
-      </Button>
+      {onSelect && !featured ? (
+        <Button
+          size="lg"
+          variant="outline"
+          onClick={onSelect}
+          className="h-14 w-full rounded-full text-base font-bold shadow-none"
+        >
+          Escolher o Essencial
+        </Button>
+      ) : (
+        <Button
+          asChild
+          size="lg"
+          variant={featured ? "default" : "outline"}
+          className="h-14 w-full rounded-full text-base font-bold shadow-none"
+        >
+          <a href={href}>
+            {featured ? "Quero a preparação completa" : "Escolher o Essencial"}
+          </a>
+        </Button>
+      )}
       <small className="mt-3 text-center text-muted-foreground">
         Garantia incondicional de 7 dias
       </small>
@@ -206,6 +226,8 @@ function PlanCard({
 }
 
 function LandingPage() {
+  const [upsellOpen, setUpsellOpen] = useState(false);
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <div className="bg-primary px-4 py-2.5 text-center text-xs font-bold leading-snug text-primary-foreground sm:text-sm">
@@ -304,6 +326,7 @@ function LandingPage() {
                 cash="297,00"
                 features={essentialFeatures}
                 href="#garantia"
+                onSelect={() => setUpsellOpen(true)}
               />
               <PlanCard
                 name="O Poder do Parto Completo"
@@ -571,6 +594,40 @@ function LandingPage() {
           <a href="#planos">Escolher meu plano</a>
         </Button>
       </div>
+
+      <Dialog open={upsellOpen} onOpenChange={setUpsellOpen}>
+        <DialogContent className="max-w-[26rem] rounded-2xl sm:rounded-2xl">
+          <DialogHeader>
+            <span className="eyebrow text-primary">Oferta especial — só agora</span>
+            <DialogTitle className="font-display text-2xl leading-tight">
+              Adicione o Mari com Você com 50% de desconto
+            </DialogTitle>
+            <DialogDescription className="text-sm leading-relaxed">
+              Leve o acompanhamento direto com a Mari pelo WhatsApp junto com a sua preparação Essencial.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="rounded-lg bg-success-soft px-4 py-4 text-center">
+            <p className="text-sm text-muted-foreground line-through">de R$ 97,00</p>
+            <p className="font-display text-4xl font-bold text-success-dark">por R$ 48,50</p>
+            <p className="mt-1 text-xs font-bold uppercase tracking-wide text-success-dark">50% de desconto</p>
+          </div>
+          <div className="grid gap-2.5">
+            <Button asChild size="lg" className="h-14 w-full rounded-full text-base font-bold">
+              <a href="https://pay.hotmart.com/X88395451D?off=y194vq5g&checkoutMode=10">
+                Sim, quero esta opção
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="h-12 w-full rounded-full text-sm font-bold">
+              <a href="https://pay.hotmart.com/X88395451D?off=o69s199w&checkoutMode=10">
+                Continuar apenas com o Essencial
+              </a>
+            </Button>
+          </div>
+          <p className="text-center text-xs text-muted-foreground">
+            Garantia incondicional de 7 dias • Pagamento seguro
+          </p>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
