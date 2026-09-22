@@ -601,7 +601,7 @@ function LandingPage() {
           <DialogHeader>
             <span className="eyebrow text-primary">Oferta especial — só agora</span>
             <DialogTitle className="font-display text-2xl leading-tight">
-              Adicione o Mari com Você com 50% de desconto
+              O Poder do Parto Completo
             </DialogTitle>
             <DialogDescription className="text-sm leading-relaxed">
               Leve o acompanhamento direto com a Mari pelo WhatsApp junto com a sua preparação Essencial.
