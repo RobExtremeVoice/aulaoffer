@@ -344,15 +344,15 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-muted py-20 lg:py-24">
+        <section className="bg-muted py-16 sm:py-20 lg:py-24">
           <div className="page-wrap">
-            <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
               <Eyebrow>Por dentro do curso</Eyebrow>
-              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
                 Uma preparação completa, passo a passo
               </h2>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {modules.map(([number, title, description, image]) => (
                 <article
                   key={number}
@@ -363,8 +363,9 @@ function LandingPage() {
                     alt={`${number} — ${title}`}
                     className="aspect-[4/3] w-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
-                  <div className="p-5">
+                  <div className="p-4 sm:p-5">
                     <span className="text-xs font-bold uppercase tracking-wide text-primary">
                       {number}
                     </span>
@@ -379,15 +380,15 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-primary py-20 text-primary-foreground lg:py-24">
+        <section className="bg-primary py-16 text-primary-foreground sm:py-20 lg:py-24">
           <div className="page-wrap">
-            <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
               <Eyebrow light>Bônus incríveis</Eyebrow>
-              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
                 Recursos extras para você se sentir ainda mais segura
               </h2>
             </div>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-7">
               {bonuses.map((image, i) => (
                 <article
                   key={image.asset_id}
@@ -398,8 +399,9 @@ function LandingPage() {
                     alt={`Bônus ${i + 1}`}
                     className="aspect-[3/4] w-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
-                  <div className="p-3 text-center text-sm font-bold">Bônus {i + 1}</div>
+                  <div className="p-2.5 text-center text-xs font-bold sm:p-3 sm:text-sm">Bônus {i + 1}</div>
                 </article>
               ))}
             </div>
@@ -407,13 +409,12 @@ function LandingPage() {
         </section>
 
 
-
-        <section className="bg-primary py-20 text-primary-foreground lg:py-24">
-          <div className="page-wrap grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
+        <section className="border-t border-primary-foreground/15 bg-primary py-16 text-primary-foreground sm:py-20 lg:py-24">
+          <div className="page-wrap grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr] lg:gap-12">
             <div>
               <Eyebrow light>Exclusivo do plano Completo</Eyebrow>
-              <h2 className="mt-4 font-display text-5xl font-semibold">Mari com Você</h2>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
+              <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Mari com Você</h2>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
                 No plano Completo, além de todo o conteúdo do curso, você tem um canal direto com a Mari para organizar perguntas, esclarecer dúvidas educativas e se preparar para conversar com sua equipe.
               </p>
               <ul className="my-7 grid gap-3">
