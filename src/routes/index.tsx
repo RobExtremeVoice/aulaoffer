@@ -56,6 +56,9 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [
+      { rel: "preload", as: "image", href: heroImage, fetchpriority: "high" },
+    ],
   }),
   component: LandingPage,
 });
@@ -152,30 +155,30 @@ function PlanCard({
 }) {
   return (
     <article
-      className={`relative flex flex-col rounded-lg border bg-card p-6 shadow-sm sm:p-8 ${
+      className={`relative flex flex-col rounded-lg border bg-card p-5 shadow-sm sm:p-8 ${
         featured ? "border-2 border-primary shadow-xl lg:-translate-y-2" : "border-border"
       }`}
     >
       {featured && (
-        <span className="absolute right-6 top-0 -translate-y-1/2 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase text-primary-foreground">
+        <span className="absolute left-5 top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-wide text-primary-foreground sm:left-auto sm:right-6 sm:px-4 sm:py-2 sm:text-xs">
           Mais escolhido
         </span>
       )}
-      <p className="text-xs font-bold uppercase text-primary">
+      <p className="mt-1 text-xs font-bold uppercase text-primary sm:mt-0">
         Plano {featured ? "completo" : "essencial"}
       </p>
-      <h3 className="mt-3 font-display text-3xl font-semibold leading-tight text-foreground">{name}</h3>
-      <p className="mt-3 min-h-16 text-muted-foreground">{subtitle}</p>
-      <div className="mt-7">
+      <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-foreground sm:text-3xl">{name}</h3>
+      <p className="mt-3 text-muted-foreground sm:min-h-16">{subtitle}</p>
+      <div className="mt-6 sm:mt-7">
         <div className="flex flex-wrap items-baseline gap-2 text-primary">
-          <span className="text-xl font-bold">12x</span>
-          <span className="font-display text-4xl font-bold sm:text-5xl">R$ {amount}*</span>
+          <span className="text-lg font-bold sm:text-xl">12x</span>
+          <span className="font-display text-3xl font-bold sm:text-5xl">R$ {amount}*</span>
         </div>
         <p className="mt-2 text-sm text-muted-foreground">
           ou <strong className="text-foreground">R$ {cash}</strong> à vista
         </p>
       </div>
-      <ul className="my-7 flex flex-1 flex-col gap-3">
+      <ul className="my-6 flex flex-1 flex-col gap-3 sm:my-7">
         {features.map((feature) => (
           <li key={feature} className="flex gap-3 text-sm sm:text-base">
             <Check className="mt-0.5 size-5 shrink-0 text-success" strokeWidth={3} />
@@ -203,36 +206,36 @@ function PlanCard({
 function LandingPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
-      <div className="bg-primary px-4 py-2.5 text-center text-xs font-bold text-primary-foreground sm:text-sm">
+      <div className="bg-primary px-4 py-2.5 text-center text-xs font-bold leading-snug text-primary-foreground sm:text-sm">
         A aula terminou. Agora escolha como você quer se preparar.
       </div>
 
-      <header className="page-wrap flex items-center justify-between py-5">
-        <a href="#top" className="inline-flex">
-          <img src={logo.url} alt="O Poder do Parto" className="w-40 sm:w-52" />
+      <header className="page-wrap flex items-center justify-between gap-4 py-4 sm:py-5">
+        <a href="#top" className="inline-flex shrink-0">
+          <img src={logo.url} alt="O Poder do Parto" className="w-32 sm:w-52" width={512} height={160} />
         </a>
         <div className="hidden items-center gap-2 text-sm text-muted-foreground sm:flex">
-          <span className="size-2.5 rounded-full bg-success" />
+          <span className="size-2.5 shrink-0 rounded-full bg-success" />
           Ambiente seguro • Garantia de 7 dias
         </div>
       </header>
 
       <main id="top">
-        <section className="relative overflow-hidden pb-20 pt-8 lg:pb-24 lg:pt-14">
-          <div className="page-wrap grid items-center gap-12 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
+        <section className="relative overflow-hidden pb-16 pt-6 lg:pb-24 lg:pt-14">
+          <div className="page-wrap grid items-center gap-10 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
             <div className="relative z-10 text-center lg:text-left">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-success-soft px-4 py-2 text-sm font-bold text-success-dark">
-                <CheckCircle2 className="size-5" />
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-success-soft px-3 py-1.5 text-xs font-bold text-success-dark sm:px-4 sm:py-2 sm:text-sm">
+                <CheckCircle2 className="size-4 shrink-0 sm:size-5" />
                 Você concluiu a aula gratuita
               </div>
               <Eyebrow>Seu próximo passo</Eyebrow>
-              <h1 className="mt-4 max-w-4xl font-display text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">
+              <h1 className="mt-3 max-w-4xl font-display text-[2.1rem] font-semibold leading-[1.08] sm:text-5xl lg:text-6xl xl:text-7xl">
                 Informação muda escolhas. <span className="text-primary">Preparação muda experiências.</span>
               </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:mx-0 lg:text-xl">
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0 lg:text-xl">
                 Você já entendeu por que um parto seguro e respeitoso não acontece por acaso. Agora escolha o nível de preparação que faz sentido para você e para o seu bebê.
               </p>
-              <Button asChild size="lg" className="mt-8 h-14 rounded-full px-7 text-base font-bold shadow-lg">
+              <Button asChild size="lg" className="mt-7 h-14 w-full rounded-full px-7 text-base font-bold shadow-lg sm:w-auto">
                 <a href="#planos">
                   Quero escolher minha preparação
                   <ArrowDown />
@@ -243,18 +246,20 @@ function LandingPage() {
               </p>
             </div>
 
-            <div className="relative mx-auto h-[440px] w-full max-w-md lg:h-[580px]">
+            <div className="relative mx-auto h-[380px] w-full max-w-md sm:h-[440px] lg:h-[580px]">
               <div className="absolute inset-x-4 bottom-0 top-10 rotate-2 rounded-[46%_46%_18%_18%] bg-accent" />
               <img
                 src={heroImage}
                 alt="Gestante serena representando uma preparação consciente para o parto"
                 width={1024}
                 height={1280}
+                fetchPriority="high"
+                decoding="async"
                 className="relative h-full w-full rounded-[46%_46%_18%_18%] object-cover object-top shadow-2xl"
               />
-              <div className="absolute bottom-5 left-4 rounded-lg border border-primary-foreground/40 bg-background/90 px-4 py-3 shadow-lg backdrop-blur-sm sm:left-[-1rem]">
+              <div className="absolute bottom-4 left-2 rounded-lg border border-primary-foreground/40 bg-background/90 px-3 py-2.5 shadow-lg backdrop-blur-sm sm:bottom-5 sm:left-[-1rem] sm:px-4 sm:py-3">
                 <div className="flex items-center gap-3">
-                  <Heart className="size-5 fill-primary text-primary" />
+                  <Heart className="size-5 shrink-0 fill-primary text-primary" />
                   <div>
                     <p className="text-sm font-bold">Mais confiança para escolher</p>
                     <p className="text-xs text-muted-foreground">Informação para você e seu bebê</p>
@@ -265,30 +270,31 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-muted py-20 text-center">
+
+        <section className="bg-muted py-16 text-center sm:py-20">
           <div className="page-wrap max-w-4xl">
             <Eyebrow>A aula foi o começo</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
               Agora você precisa de um caminho claro até o dia do parto.
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Sem outra aula longa e sem repetir o que você acabou de assistir. Aqui você compara as opções, entende o que recebe e escolhe como quer continuar sua preparação.
             </p>
           </div>
         </section>
 
-        <section id="planos" className="scroll-mt-6 py-24">
+        <section id="planos" className="scroll-mt-4 py-16 sm:py-24">
           <div className="page-wrap">
-            <div className="mx-auto mb-14 max-w-3xl text-center">
+            <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
               <Eyebrow>Escolha sua experiência</Eyebrow>
-              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
                 Qual preparação combina com você?
               </h2>
               <p className="mt-5 text-muted-foreground">
                 Os dois planos oferecem o curso completo. No plano Completo, você também conta com um canal direto com a Mari durante a gestação.
               </p>
             </div>
-            <div className="grid gap-7 lg:grid-cols-2">
+            <div className="grid gap-8 pt-3 lg:grid-cols-2 lg:gap-7">
               <PlanCard
                 name="O Poder do Parto Essencial"
                 subtitle="Para quem quer compreender o parto, reconhecer escolhas e chegar mais preparada."
@@ -308,16 +314,19 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="pb-24">
+        <section className="pb-16 sm:pb-24">
           <div className="page-wrap">
-            <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
               <Eyebrow>Compare com calma</Eyebrow>
-              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
                 Veja a diferença entre os planos
               </h2>
+              <p className="mt-3 text-sm text-muted-foreground sm:hidden">
+                Arraste a tabela para o lado para ver os dois planos.
+              </p>
             </div>
             <div className="overflow-x-auto rounded-lg border border-border bg-card shadow-sm">
-              <div className="min-w-[640px]">
+              <div className="min-w-[560px]">
                 <div className="comparison-row bg-muted font-bold">
                   <div>O que você recebe</div>
                   <div>Essencial</div>
