@@ -341,8 +341,7 @@ function LandingPage() {
           </div>
         </section>
 
-
-        <section className="bg-muted py-16 text-center sm:py-20">
+        <section className="py-16 text-center sm:py-20">
           <div className="page-wrap max-w-4xl">
             <Eyebrow>A aula foi o começo</Eyebrow>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
@@ -351,85 +350,6 @@ function LandingPage() {
             <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Sem outra aula longa e sem repetir o que você acabou de assistir. Aqui você compara as opções, entende o que recebe e escolhe como quer continuar sua preparação.
             </p>
-          </div>
-        </section>
-
-        <section id="planos" className="scroll-mt-4 py-16 sm:py-24">
-          <div className="page-wrap">
-            <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
-              <Eyebrow>Escolha sua experiência</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
-                Qual preparação combina com você?
-              </h2>
-              <p className="mt-5 text-muted-foreground">
-                Os dois planos oferecem o curso completo. No plano Completo, você também conta com um canal direto com a Mari durante a gestação.
-              </p>
-            </div>
-            <div className="grid gap-8 pt-3 lg:grid-cols-2 lg:gap-7">
-              <PlanCard
-                name="O Poder do Parto Essencial"
-                subtitle="Para quem quer compreender o parto, reconhecer escolhas e chegar mais preparada."
-                amount="30,72"
-                cash="297,00"
-                features={essentialFeatures}
-                href="#garantia"
-                onSelect={() => setUpsellOpen(true)}
-              />
-              <PlanCard
-                name="O Poder do Parto Completo"
-                subtitle="Para quem quer todo o curso e a tranquilidade de poder falar diretamente com a Mari durante a gestação."
-                amount="40,75"
-                cash="394,00"
-                features={completeFeatures}
-                href="https://pay.hotmart.com/X88395451D?off=7skbnr37&checkoutMode=10"
-                featured
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="pb-16 sm:pb-24">
-          <div className="page-wrap">
-            <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
-              <Eyebrow>Compare com calma</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
-                Veja a diferença entre os planos
-              </h2>
-            </div>
-            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-              <table className="w-full table-fixed text-left text-[0.78rem] sm:text-base">
-                <caption className="sr-only">Comparação dos benefícios dos planos Essencial e Completo</caption>
-                <colgroup>
-                  <col className="w-[52%] sm:w-[47%]" />
-                  <col className="w-[24%] sm:w-[26.5%]" />
-                  <col className="w-[24%] sm:w-[26.5%]" />
-                </colgroup>
-                <thead className="bg-muted">
-                  <tr>
-                    <th scope="col" className="p-3 font-bold sm:p-5">O que você recebe</th>
-                    <th scope="col" className="border-l border-border p-2 text-center font-bold sm:p-5">Essencial</th>
-                    <th scope="col" className="border-l border-border p-2 text-center font-bold sm:p-5">Completo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map(([label, essential, complete]) => (
-                    <tr key={label} className="border-t border-border">
-                      <th scope="row" className="p-3 font-medium leading-snug sm:p-5">{label}</th>
-                      {[essential, complete].map((included, index) => (
-                        <td key={index} className="border-l border-border p-2 text-center sm:p-5">
-                          <span className="sr-only">{included ? "Incluído" : "Não incluído"}</span>
-                          {included ? (
-                            <Check className="mx-auto size-5 text-success-dark" strokeWidth={3} aria-hidden="true" />
-                          ) : (
-                            <span aria-hidden="true">—</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
           </div>
         </section>
 
@@ -507,7 +427,6 @@ function LandingPage() {
             </div>
           </div>
         </section>
-
 
         <section className="bg-secondary py-16 text-secondary-foreground sm:py-20 lg:py-24">
           <div className="page-wrap grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr] lg:gap-12">
@@ -604,6 +523,85 @@ function LandingPage() {
                   decoding="async"
                 />
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="planos" className="scroll-mt-4 py-16 sm:py-24">
+          <div className="page-wrap">
+            <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+              <Eyebrow>Escolha sua experiência</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
+                Qual preparação combina com você?
+              </h2>
+              <p className="mt-5 text-muted-foreground">
+                Os dois planos oferecem o curso completo. No plano Completo, você também conta com um canal direto com a Mari durante a gestação.
+              </p>
+            </div>
+            <div className="grid gap-8 pt-3 lg:grid-cols-2 lg:gap-7">
+              <PlanCard
+                name="O Poder do Parto Essencial"
+                subtitle="Para quem quer compreender o parto, reconhecer escolhas e chegar mais preparada."
+                amount="30,72"
+                cash="297,00"
+                features={essentialFeatures}
+                href="#garantia"
+                onSelect={() => setUpsellOpen(true)}
+              />
+              <PlanCard
+                name="O Poder do Parto Completo"
+                subtitle="Para quem quer todo o curso e a tranquilidade de poder falar diretamente com a Mari durante a gestação."
+                amount="40,75"
+                cash="394,00"
+                features={completeFeatures}
+                href="https://pay.hotmart.com/X88395451D?off=7skbnr37&checkoutMode=10"
+                featured
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-16 sm:pb-24">
+          <div className="page-wrap">
+            <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
+              <Eyebrow>Compare com calma</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
+                Veja a diferença entre os planos
+              </h2>
+            </div>
+            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+              <table className="w-full table-fixed text-left text-[0.78rem] sm:text-base">
+                <caption className="sr-only">Comparação dos benefícios dos planos Essencial e Completo</caption>
+                <colgroup>
+                  <col className="w-[52%] sm:w-[47%]" />
+                  <col className="w-[24%] sm:w-[26.5%]" />
+                  <col className="w-[24%] sm:w-[26.5%]" />
+                </colgroup>
+                <thead className="bg-muted">
+                  <tr>
+                    <th scope="col" className="p-3 font-bold sm:p-5">O que você recebe</th>
+                    <th scope="col" className="border-l border-border p-2 text-center font-bold sm:p-5">Essencial</th>
+                    <th scope="col" className="border-l border-border p-2 text-center font-bold sm:p-5">Completo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map(([label, essential, complete]) => (
+                    <tr key={label} className="border-t border-border">
+                      <th scope="row" className="p-3 font-medium leading-snug sm:p-5">{label}</th>
+                      {[essential, complete].map((included, index) => (
+                        <td key={index} className="border-l border-border p-2 text-center sm:p-5">
+                          <span className="sr-only">{included ? "Incluído" : "Não incluído"}</span>
+                          {included ? (
+                            <Check className="mx-auto size-5 text-success-dark" strokeWidth={3} aria-hidden="true" />
+                          ) : (
+                            <span aria-hidden="true">—</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
