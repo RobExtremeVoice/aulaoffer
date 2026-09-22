@@ -106,11 +106,6 @@ const faqs = [
       "O Essencial dá acesso ao curso O Poder do Parto. O Completo inclui todo o conteúdo do Essencial e também o Mari com Você: um canal direto pelo WhatsApp para falar com a Mari durante a gestação, até o parto.",
   },
   {
-    question: "O Guia das 18 Perguntas está incluído?",
-    answer:
-      "Não. O guia é um complemento opcional de R$ 27, oferecido como order bump no checkout. Você escolhe se deseja adicioná-lo à compra.",
-  },
-  {
     question: "Por quanto tempo tenho acesso?",
     answer:
       "Os dois planos foram estruturados com acesso vitalício, para você rever o conteúdo sempre que precisar.",
