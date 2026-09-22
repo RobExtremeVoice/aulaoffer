@@ -417,20 +417,20 @@ function LandingPage() {
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
                 No plano Completo, além de todo o conteúdo do curso, você tem um canal direto com a Mari para organizar perguntas, esclarecer dúvidas educativas e se preparar para conversar com sua equipe.
               </p>
-              <ul className="my-7 grid gap-3">
+              <ul className="my-6 grid gap-3 sm:my-7">
                 {[
                   "Acompanhamento individual pelo WhatsApp",
                   "Mensagens de texto e áudio",
                   "Acesso da compra até o nascimento do bebê",
                   "Vagas limitadas para preservar a qualidade do atendimento",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <Check className="size-5 text-success-bright" strokeWidth={3} />
-                    {item}
+                  <li key={item} className="flex items-start gap-3">
+                    <Check className="mt-0.5 size-5 shrink-0 text-success-bright" strokeWidth={3} />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" variant="secondary" className="h-14 rounded-full px-7 text-base font-bold">
+              <Button asChild size="lg" variant="secondary" className="h-14 w-full rounded-full px-7 text-base font-bold sm:w-auto">
                 <a href="#planos">Quero o plano Completo</a>
               </Button>
               <p className="mt-4 max-w-2xl text-xs text-primary-foreground/65">
@@ -448,27 +448,28 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24">
-          <div className="page-wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="mx-auto w-full max-w-md overflow-hidden rounded-lg border border-border bg-card p-3 shadow-lg sm:p-4">
+        <section className="py-16 sm:py-24">
+          <div className="page-wrap grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+            <div className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-border bg-card p-3 shadow-lg sm:max-w-md sm:p-4">
               <img
                 src={mariPhoto.url}
                 alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica"
                 className="aspect-square w-full rounded-md object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div>
               <Eyebrow>Quem vai te acompanhar</Eyebrow>
-              <h2 className="mt-3 font-display text-5xl font-semibold">Mari Betioli</h2>
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Mari Betioli</h2>
+              <div className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
                 {[
                   "19 anos trabalhando com gestantes",
                   "Obstetriz, doula e educadora perinatal",
                   "Experiência no Brasil, Portugal e EUA",
                   "Formação em Spinning Babies e Active Birth",
                 ].map((item) => (
-                  <div key={item} className="rounded-lg bg-muted p-5 font-semibold">
+                  <div key={item} className="rounded-lg bg-muted p-4 text-sm font-semibold sm:p-5 sm:text-base">
                     {item}
                   </div>
                 ))}
@@ -477,21 +478,22 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-muted py-20 lg:py-24">
+        <section className="bg-muted py-16 sm:py-20 lg:py-24">
           <div className="page-wrap">
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>Depoimentos reais</Eyebrow>
-              <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">
                 Mais de 1.700 mulheres transformadas
               </h2>
             </div>
             <img
               src={testimonialWomen.url}
               alt="Mulheres que participaram do Poder do Parto"
-              className="mx-auto mt-9 max-h-72 max-w-full object-contain"
+              className="mx-auto mt-8 max-h-56 max-w-full object-contain sm:max-h-72"
               loading="lazy"
+              decoding="async"
             />
-            <div className="mt-10 grid grid-cols-2 items-start gap-3 sm:gap-5 lg:grid-cols-4">
+            <div className="mt-8 grid grid-cols-2 items-start gap-3 sm:gap-5 lg:mt-10 lg:grid-cols-4">
               {[testimonial1, testimonial2, testimonial3, testimonial4].map((image, index) => (
                 <img
                   key={image.asset_id}
@@ -499,20 +501,21 @@ function LandingPage() {
                   alt={`Depoimento de aluna ${index + 1}`}
                   className="w-full rounded-lg border border-border bg-card shadow-sm"
                   loading="lazy"
+                  decoding="async"
                 />
               ))}
             </div>
           </div>
         </section>
 
-        <section id="garantia" className="page-wrap scroll-mt-8 pb-24">
-          <div className="grid items-center gap-6 rounded-lg bg-success-soft p-7 sm:grid-cols-[auto_1fr] sm:p-12">
-            <div className="flex size-24 items-center justify-center rounded-full bg-success text-success-foreground">
-              <ShieldCheck className="size-11" />
+        <section id="garantia" className="page-wrap scroll-mt-6 pb-16 sm:pb-24">
+          <div className="grid items-center gap-5 rounded-lg bg-success-soft p-6 sm:grid-cols-[auto_1fr] sm:gap-6 sm:p-12">
+            <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-success text-success-foreground sm:size-24">
+              <ShieldCheck className="size-8 sm:size-11" />
             </div>
             <div>
               <Eyebrow>Seu risco é zero</Eyebrow>
-              <h2 className="mt-2 font-display text-4xl font-semibold">Experimente por 7 dias</h2>
+              <h2 className="mt-2 font-display text-3xl font-semibold sm:text-4xl">Experimente por 7 dias</h2>
               <p className="mt-3 max-w-3xl text-muted-foreground">
                 Acesse o conteúdo e conheça o método. Se sentir que não é para você, solicite o reembolso dentro do período de garantia.
               </p>
@@ -520,16 +523,16 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-muted py-24">
+        <section className="bg-muted py-16 sm:py-24">
           <div className="page-wrap max-w-4xl">
             <div className="text-center">
               <Eyebrow>Dúvidas frequentes</Eyebrow>
-              <h2 className="mt-4 font-display text-5xl font-semibold">Antes de escolher</h2>
+              <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Antes de escolher</h2>
             </div>
-            <Accordion type="single" collapsible className="mt-10 grid gap-3">
+            <Accordion type="single" collapsible className="mt-8 grid gap-3 sm:mt-10">
               {faqs.map((faq, index) => (
-                <AccordionItem key={faq.question} value={`item-${index}`} className="rounded-lg border border-border bg-card px-5">
-                  <AccordionTrigger className="py-5 text-left text-base font-bold hover:no-underline">
+                <AccordionItem key={faq.question} value={`item-${index}`} className="rounded-lg border border-border bg-card px-4 sm:px-5">
+                  <AccordionTrigger className="py-4 text-left text-[0.95rem] font-bold hover:no-underline sm:py-5 sm:text-base">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="pb-5 leading-relaxed text-muted-foreground">
@@ -541,16 +544,16 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="py-24 text-center">
+        <section className="py-16 text-center sm:py-24">
           <div className="page-wrap max-w-3xl">
-            <h2 className="font-display text-5xl font-semibold">Seu bebê só nasce uma vez</h2>
-            <p className="mt-5 text-xl text-muted-foreground">
+            <h2 className="font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Seu bebê só nasce uma vez</h2>
+            <p className="mt-5 text-lg text-muted-foreground sm:text-xl">
               Escolha viver esse momento com mais informação e confiança.
             </p>
             <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
               Você já deu o primeiro passo assistindo à aula. Agora escolha a preparação que vai acompanhar você até o parto.
             </p>
-            <Button asChild size="lg" className="mt-8 h-14 rounded-full px-7 text-base font-bold">
+            <Button asChild size="lg" className="mt-8 h-14 w-full rounded-full px-7 text-base font-bold sm:w-auto">
               <a href="#planos">Comparar os planos novamente</a>
             </Button>
           </div>
@@ -558,8 +561,8 @@ function LandingPage() {
       </main>
 
       <footer className="border-t border-border px-4 py-8 text-center text-xs text-muted-foreground sm:text-sm">
-        <img src={logo.url} alt="O Poder do Parto" className="mx-auto mb-4 w-40 sm:w-44 opacity-80" />
-        <p>© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
+        <img src={logo.url} alt="O Poder do Parto" className="mx-auto mb-4 w-36 opacity-80 sm:w-44" loading="lazy" />
+        <p className="mx-auto max-w-2xl leading-relaxed">© 2026 O Poder do Parto • Conteúdo educativo • Não substitui acompanhamento médico</p>
       </footer>
 
       <div className="fixed inset-x-3 bottom-3 z-50 sm:hidden">
