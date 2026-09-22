@@ -278,7 +278,10 @@ function LandingPage() {
       return;
     }
     const observer = new IntersectionObserver(
-      ([entry]) => setFixedCtaHidden(entry.isIntersecting),
+      (entries) => {
+        const entry = entries[0];
+        if (entry) setFixedCtaHidden(entry.isIntersecting);
+      },
       { threshold: 0.5 }
     );
     observer.observe(target);
