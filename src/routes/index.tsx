@@ -353,6 +353,14 @@ function LandingPage() {
 
         <section className="py-24">
           <div className="page-wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="mx-auto w-full max-w-md overflow-hidden rounded-lg border border-border bg-card p-3 shadow-lg sm:p-4">
+              <img
+                src={mariPhoto.url}
+                alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica"
+                className="aspect-square w-full rounded-md object-cover"
+                loading="lazy"
+              />
+            </div>
             <div>
               <Eyebrow>Quem vai te acompanhar</Eyebrow>
               <h2 className="mt-3 font-display text-5xl font-semibold">Mari Betioli</h2>
@@ -368,14 +376,6 @@ function LandingPage() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="mx-auto w-full max-w-md overflow-hidden rounded-lg border border-border bg-card p-3 shadow-lg sm:p-4">
-              <img
-                src={mariPhoto.url}
-                alt="Mari Betioli segurando um modelo de bebê e uma bacia pélvica"
-                className="aspect-square w-full rounded-md object-cover"
-                loading="lazy"
-              />
             </div>
           </div>
         </section>
