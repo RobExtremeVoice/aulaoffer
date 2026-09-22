@@ -144,6 +144,7 @@ function PlanCard({
   amount,
   cash,
   features,
+  href,
   featured = false,
 }: {
   name: string;
@@ -151,6 +152,7 @@ function PlanCard({
   amount: string;
   cash: string;
   features: string[];
+  href: string;
   featured?: boolean;
 }) {
   return (
@@ -192,7 +194,7 @@ function PlanCard({
         variant={featured ? "default" : "outline"}
         className="h-14 w-full rounded-full text-base font-bold shadow-none"
       >
-        <a href="#garantia">
+        <a href={href}>
           {featured ? "Quero a preparação completa" : "Escolher o Essencial"}
         </a>
       </Button>
@@ -301,13 +303,15 @@ function LandingPage() {
                 amount="30,72"
                 cash="297,00"
                 features={essentialFeatures}
+                href="#garantia"
               />
               <PlanCard
                 name="O Poder do Parto Completo"
                 subtitle="Para quem quer todo o curso e a tranquilidade de poder falar diretamente com a Mari durante a gestação."
-                amount="41,06"
-                cash="397,00"
+                amount="32,83"
+                cash="394,00"
                 features={completeFeatures}
+                href="https://pay.hotmart.com/X88395451D?off=7skbnr37&checkoutMode=10"
                 featured
               />
             </div>
