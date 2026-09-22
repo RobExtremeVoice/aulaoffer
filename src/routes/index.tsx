@@ -173,7 +173,7 @@ const faqs = [
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p className={light ? "eyebrow text-primary-foreground/70" : "eyebrow text-primary"}>
+    <p className={light ? "eyebrow text-primary-foreground/90" : "eyebrow text-primary"}>
       {children}
     </p>
   );
@@ -263,7 +263,7 @@ function LandingPage() {
   const [upsellOpen, setUpsellOpen] = useState(false);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+    <div id="top" className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <a
         href="#conteudo-principal"
         className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-background px-4 py-3 font-bold text-foreground shadow-lg transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
@@ -444,6 +444,8 @@ function LandingPage() {
                      <img
                        src={image}
                        alt={`Capa do ${number}: ${title}`}
+                       width={1024}
+                       height={576}
                        className="h-full w-full object-contain"
                        loading="lazy"
                        decoding="async"
@@ -482,6 +484,8 @@ function LandingPage() {
                     <img
                       src={image.url}
                       alt={`Capa do ${number}: ${title}`}
+                      width={1600}
+                      height={900}
                       className="h-full w-full object-contain"
                       loading="lazy"
                       decoding="async"
@@ -551,18 +555,18 @@ function LandingPage() {
             <div>
               <Eyebrow>Quem vai te acompanhar</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Mari Betioli</h2>
-              <div className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
+              <ul className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
                 {[
                   "19 anos trabalhando com gestantes",
                   "Obstetriz, doula e educadora perinatal",
                   "Experiência no Brasil, Portugal e EUA",
                   "Formação em Spinning Babies e Active Birth",
                 ].map((item) => (
-                  <div key={item} className="rounded-lg bg-muted p-4 text-sm font-semibold sm:p-5 sm:text-base">
+                  <li key={item} className="rounded-lg bg-muted p-4 text-sm font-semibold sm:p-5 sm:text-base">
                     {item}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </section>
